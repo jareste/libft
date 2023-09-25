@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jareste- <jareste-@student.42barcel>       +#+  +:+       +#+        */
+/*   By: jareste- <jareste-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:04:56 by jareste-          #+#    #+#             */
-/*   Updated: 2023/05/09 00:00:01 by jareste-         ###   ########.fr       */
+/*   Updated: 2023/09/25 07:47:08 by jareste-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		{
 			((char *)dst)[i] = ((char *)src)[i];
 			i++;
-		}	
+		}
 	}
 	return (dst);
 }
