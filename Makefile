@@ -6,7 +6,7 @@
 #    By: jareste- <jareste-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 12:08:30 by jareste-          #+#    #+#              #
-#    Updated: 2023/09/25 10:43:51 by jareste-         ###   ########.fr        #
+#    Updated: 2023/09/25 11:13:45 by jareste-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ SRCS	=	ft_atoi.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 
-SRCS_B		=ft_lstnew.c	\
+SRCS_B	=	ft_lstnew.c	\
 			ft_lstadd_front.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
@@ -60,7 +60,7 @@ SRCS_B		=ft_lstnew.c	\
 			ft_lstiter.c \
 			ft_lstmap.c 
 
-OBJS	= 	$(SRCS:.c=.o)
+OBJS	= 	$(SRCS:.c=.o) #$(SRCS_B:.c=.o)
 
 OBJS_B	=	$(SRCS_B:.c=.o)
 
@@ -72,27 +72,26 @@ LIBC	= 	ar -rcs
 
 FLAGS	= 	-Wall -Wextra -Werror
 
-
-#Reglas
-all: $(NAME)
-
 %.o: %.c Makefile
 	$(CC) $(FLAGS) -I ./ -c $< -o $@
 
-$(NAME):: ${OBJS} ${HEADER}
-	$(LIBC) $(NAME) $(OBJS)
-
-fclean: clean
-	$(RM) $(NAME)
-
+all: $(NAME)
 
 bonus:	OBJS += $(OBJS_B)
 
 bonus: all
+
+.SECONDEXPANSION :
+
+$(NAME): $$(OBJS) ${HEADER}
+	$(LIBC) $(NAME) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
 
 re: fclean all
 
-.PHONY: all clean fclean re .c.o bonus
+.PHONY: all clean fclean re bonus
