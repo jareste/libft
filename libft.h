@@ -6,7 +6,7 @@
 /*   By: jareste- <jareste-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:26:27 by jareste-          #+#    #+#             */
-/*   Updated: 2023/09/25 07:49:17 by jareste-         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:37:21 by jareste-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-	struct s_list	*first;
 }		t_list;
 
 int		ft_atoi(const char *str);

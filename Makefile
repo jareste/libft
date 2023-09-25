@@ -6,10 +6,11 @@
 #    By: jareste- <jareste-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 12:08:30 by jareste-          #+#    #+#              #
-#    Updated: 2023/09/25 08:16:50 by jareste-         ###   ########.fr        #
+#    Updated: 2023/09/25 10:43:51 by jareste-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#Variables
 HEADER	=	libft.h
 
 NAME	=	libft.a
@@ -71,19 +72,23 @@ LIBC	= 	ar -rcs
 
 FLAGS	= 	-Wall -Wextra -Werror
 
-$(OBJ)%.o:%.c Makefile
+
+#Reglas
+all: $(NAME)
+
+%.o: %.c Makefile
 	$(CC) $(FLAGS) -I ./ -c $< -o $@
 
 $(NAME):: ${OBJS} ${HEADER}
 	$(LIBC) $(NAME) $(OBJS)
 
-all: $(NAME)
-
 fclean: clean
 	$(RM) $(NAME)
 
-bonus:	$(NAME) $(OBJS_B) $(HEADER)
-	$(LIBC) $(NAME) $(OBJS_B)
+
+bonus:	OBJS += $(OBJS_B)
+
+bonus: all
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
